@@ -21,29 +21,27 @@ p, ul, h1, h4 {
 }
 body{
 	margin: 0;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: #FFFFFF;
 }
 .header{
 	max-width: 1250px;
 	margin: 0 auto;
-	background: url(/images/bg-header.jpg) rgba(138, 123, 96, 0.67);
-	background-position: center bottom;
-	background-size: cover;
-	// background-blend-mode: multiply;
+	background-image: linear-gradient(rgba(138, 123, 96, 0.67), rgba(138, 123, 96, 0.67)), url(/images/bg-header.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 1250px 599px;
 	&__logo{
 		width: 267px;
 		height: 103px;
-		background-color: rgba(10, 57, 138, 1);
-		// margin-left: 60px;
+		background-color: #0A398A;
 		display: flex;
     align-items: center;
     justify-content: center;
 	}
 	&__info{
-		color:rgba(255, 255, 255, 1);
+		color:#FFFFFF;
 		font-family: 'Arial', sans-serif;	
 		font-weight: 400;
-		// margin-left: 60px;
 		margin-top: 116px;
 		&--title{
 			text-transform: uppercase;
@@ -58,7 +56,7 @@ body{
 	}
 	&__effect{
 		position: relative;
-    top: 92px;
+    top: -36px;
     left: 827px;
 	}
 }
