@@ -21,16 +21,19 @@ p, ul, h1, h2, h3, h4 {
 	margin-inline-end: 0;
 	padding-inline-start: 0;
 }
+
 body{
 	margin: 0;
 	background-color: #FFFFFF;
 	color: #FFFFFF;
 }
+
 .container{
 	max-width: 1250px;
 	margin: 0 auto;
 	padding: 0 60px;
 }
+
 .header{
 	background-image: linear-gradient(rgba(138, 123, 96, 0.67), rgba(138, 123, 96, 0.67)), url(/images/bg-header.jpg);
   background-position: center top;
@@ -110,22 +113,16 @@ body{
 		}
 	}
 }
+
 .product{
 	margin-top: 120px;
-	height: 252px;
 	background-color: #0A3B93;
 	display: flex;
 	&__inner{
+		padding: 94px 0 94px 60px;
 		display: flex;
 		align-items: center;
 		column-gap: 38px;
-		&::after{
-			content: '';
-			background-image: url(../images/Vector-2.svg);
-			flex-shrink: 0;
-			background-position: right bottom;
-			background-size: 437px 173px;
-		}
 	}
 	&__descr{
 		font-family: 'Lato', sans-serif;
@@ -136,7 +133,63 @@ body{
 	}
 	&__effect{
     position: relative;
-    left: -46px;
+    left: -62px;
     top: 79px;
+	}
+}
+
+.mission{
+	background-image: url(../images/bg-mission.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	&__inner{
+		padding: 80px 0 101px;
+		display: flex;
+		justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+	}
+	&__title{
+		text-transform: uppercase;
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+		font-size: 48px;
+		line-height: 80px;
+		&::before{
+			content: '';
+			display: inline-block;
+			width: 66px;
+			border: 2px solid #fff;
+			position: relative;
+			top: -16px;
+    	right: 30px;
+		}
+		&::after{
+			content: '';
+			display: inline-block;
+			width: 66px;
+			border: 2px solid #fff;
+			position: relative;
+			top: -16px;
+    	left: 30px;
+		}
+	}
+	&__subtitle{
+		text-transform: uppercase;
+		font-family: 'Arial', sans-serif;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 28px;
+	}
+	&__button{
+		font-family: 'Arial', sans-serif;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 28px;
+		padding: 20px 72px;
+		background-color: #fff;
+		color:#0A3B93;
 	}
 }
