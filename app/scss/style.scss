@@ -29,20 +29,27 @@
 }
 
 /*Mixins*/
-@mixin square($size) {
-  width: $size;
-  height: $size;
-}
-
 @mixin fluid-text($max: 72, $min: 14) {
   font-size: fluid($max, $min);
 }
 
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0, 0, 0, 0) !important;
+  overflow: hidden !important;
+}
+
 /*Media*/
-$laptop: 1340.98;
-$tablet: 1020.98;
-$mobile: 700.98;
-/*$mobile: 290.98;*/
+$laptop: 1339.98;
+$tablet: 1019.98;
+$mobile: 699.98;
 
 @mixin laptop-above {
   @media (width > rem($laptop)) {
@@ -97,6 +104,38 @@ $mobile: 700.98;
   font-display: swap;
 }
 
+/*Variables*/
+:root {
+  --color-white: #FFFFFF;
+  --color-blue:  #0A3B93;
+  --color-brown: #6C5F4A;
+  --color-linen: #F7EEE5;
+
+  --font-family-base: 'Arial', sans-serif;
+  --font-family-accent: 'Lato', sans-serif;
+
+  @include laptop-above {
+  --container-width: #{rem(1130)};
+  --container-padding-x: #{rem(60)};
+  }
+
+  @include laptop {
+    --container-width: #{rem(850)};
+    --container-padding-x: #{rem(40)};
+  }
+
+  @include tablet {
+    --container-width: #{rem(570)};
+    --container-padding-x: #{rem(20)};
+  }
+
+  @include mobile {
+    --container-width: #{rem(262)};
+    --container-padding-x: #{rem(14)};
+  }
+}
+
+/*Normalize*/
 html {
   box-sizing: border-box;
   margin-block-start: 0;
@@ -122,56 +161,123 @@ p, ul, h1, h2, h3, h4 {
   padding-inline-start: 0;
 }
 
+/*Utils*/
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
 body {
   margin: 0;
-  background-color: #FFFFFF;
-  color: #FFFFFF;
-  font-family: 'Arial', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-white);
+  font-family: var(--font-family-base);
   font-weight: 400;
 }
 
-.container {
-  max-width: rem(1250);
-  margin: 0 auto;
-  padding: 0 rem(60);
-}
-
 .header {
+  height: rem(599);
   background-image: linear-gradient(rgba(138, 123, 96, 0.67), rgba(138, 123, 96, 0.67)), url(../images/bg-header.jpg);
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: rem(1250) rem(599);
+
+  @include laptop {
+    background-size: cover;
+  }
+
+  @include tablet {
+    height: rem(314);
+    text-align: center;
+  }
   &__logo {
-    width: rem(267);
-    height: rem(103);
-    background-color: #0A398A;
-    display: flex;
+    padding: rem(36) rem(11);
+    background-color: var(--color-blue);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    @include tablet {
+      padding: rem(22.5) rem(6.5);
+    }
+    &-image {
+      @include tablet {
+        width: rem(154);
+        height: rem(20);
+      }
+    }
   }
   &__info {
     width: rem(550);
     margin-top: rem(116);
+
+    @include laptop {
+      margin-top: rem(135);
+    }
+
+    @include tablet {
+      margin: rem(55) auto 0;
+      width: rem(322);
+    }
+
+    @include mobile {
+      width: rem(223);
+    }
     &-title {
-      text-transform: uppercase;
       font-size: rem(72);
+      text-transform: uppercase;
       line-height: rem(80);
       font-weight: 400;
+      margin-bottom: rem(15);
+
+      @include laptop {
+        margin-bottom: rem(28);
+      }
+
+      @include tablet {
+        font-size: rem(36);
+        line-height: rem(40);
+        margin-bottom: rem(20);
+      }
+
+      @include mobile {
+        font-size: rem(24);
+        line-height: rem(24);
+      }
     }
     &-desc {
       font-size: rem(26);
       line-height: rem(36);
+
+      @include tablet {
+        font-size: rem(16);
+        line-height: rem(20);
+      }
+
+      @include mobile {
+        font-size: rem(16);
+        line-height: rem(20);
+      }
     }
   }
   &__effect {
     position: relative;
     top: rem(-36);
     left: rem(827);
+
+    @include laptop {
+      display: none;
+    }
   }
 }
 
 .video{
-  margin-top: rem(-30);
+  margin-top: rem(100);
   &__wrap{
     display: flex;
   }
@@ -182,7 +288,7 @@ body {
     &-fon{
       width: rem(545);
       height: rem(367);
-      background-color: #F7EEE5;
+      background-color: var(--color-linen);
     }
     &-youtube{
       z-index: 1;
@@ -194,16 +300,16 @@ body {
   &__desc{
     margin-left: rem(76);
     &-experience{
-      color: #0A3B93;
+      color: var(--color-blue);
       text-transform: uppercase;
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-family-accent);
       font-weight: 700;
       font-size: rem(18);
       line-height: rem(30);
       margin: rem(20) 0 rem(32);
     }
     &-text{
-      color: #6C5F4A;
+      color: var(--color-brown);
       font-size: rem(18);
       line-height: rem(30);
       & p:first-child{
@@ -215,7 +321,7 @@ body {
 
 .product {
   margin-top: rem(120);
-  background-color: #0A3B93;
+  background-color: var(--color-blue);
   display: flex;
   &__inner {
     padding: rem(94) 0 rem(94) rem(60);
@@ -224,7 +330,7 @@ body {
     column-gap: rem(38);
   }
   &__desc {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-family-accent);
     font-weight: 400;
     font-size: rem(24);
     line-height: rem(32);
@@ -252,7 +358,7 @@ body {
   }
   &__title {
     text-transform: uppercase;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-family-accent);
     font-weight: 400;
     font-size: rem(48);
     line-height: rem(80);
@@ -261,7 +367,7 @@ body {
       content: '';
       display: inline-block;
       width: rem(66);
-      border: rem(2) solid #fff;
+      border: rem(2) solid var(--color-white);
       position: relative;
       top: rem(-16);
       right: rem(30);
@@ -280,19 +386,18 @@ body {
     font-size: rem(18);
     line-height: rem(28);
     padding: rem(20) rem(72);
-    background-color: #fff;
-    color:#0A3B93;
+    background-color: var(--color-white);
+    color: var(--color-blue);
   }
 }
 
 .advantages {
-  &__inner {
-    margin-top: rem(100);
-  }
+  padding-top: rem(100);
+  background-color: var(--color-linen);
   &__title {
     font-size: rem(40);
     line-height: rem(60);
-    color: #0A3B93;
+    color: var(--color-blue);
   }
   &__items {
     margin-top: rem(60);
@@ -305,7 +410,7 @@ body {
       display: block;
     }
     &__desc {
-      background-color: #0A3B93;
+      background-color: var(--color-blue);
       height: rem(139);
       p {
         width: rem(316);

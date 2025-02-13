@@ -12,8 +12,8 @@
 <body>
 
 	<header class="header container">
-		<a href="#" class="header__logo" target="_blank">
-			<img class="header__logo-image" src="images/logoipsum.svg" alt="logo">
+		<a href="#" class="header__logo" target="_blank" aria-label="Home" title="Home">
+			<img class="header__logo-image" src="images/logoipsum.svg" alt="logo" width="245" height="31">
 		</a>
 		<div class="header__info">
 			<h1 class="header__info-title">Conecom</h1>
@@ -35,7 +35,7 @@
 						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				</div>
 				<div class="video__desc">
-					<img class="video__desc-years" src="images/167.png" alt="167">
+					<img class="video__desc-years" src="images/167.png" alt="167" width="148" height="66">
 					<p class="video__desc-experience">лет нашего опыта</p>
 					<div class="video__desc-text">
 						<p>DuffBeer — один из мировых лидеров по производству дрожжей и других продуктов
@@ -53,7 +53,7 @@
 
 		<section class="product container">
 			<div class="product__inner">
-				<img class="product__arrows" src="images/arrows.svg" alt="arrows left">
+				<img class="product__arrows" src="images/arrows.svg" alt="arrows left" width="47" height="60">
 				<div class="product__desc">Каждое 3-е хлебобулочное изделие в мире произведено с использованием продукции
 					DuffBeer
 				</div>
@@ -77,8 +77,10 @@
 						<img class="item__picture" src="images/advantages-img-1.jpg" alt="advantages picture" width="356" height="178" loading="lazy">
 						<div class="item__desc">
 							<p>Уверенность в завтрашнем дне</p>
-							<span class="plussign-line"></span>
-							<span class="plussign-line"></span>
+							<button class="item__button plus" type="button" aria-label="Open content" title="Open content">
+								<span class="plus__line"></span>
+								<span class="plus__line"></span>
+							</button>
 						</div>
 					</div>
 					<div class="advantages__item">
