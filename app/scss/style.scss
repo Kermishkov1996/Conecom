@@ -176,7 +176,7 @@ body {
   margin: 0;
   background-color: var(--color-white);
   color: var(--color-white);
-  font-family: var(--font-family-base);
+  font-family: var(--font-family-base), serif;
   font-weight: 400;
 }
 
@@ -278,40 +278,132 @@ body {
 
 .video{
   margin-top: rem(100);
+
+  @include laptop {
+    margin-top: rem(80);
+  }
+
+  @include tablet {
+    margin-top: rem(60);
+  }
+
+  @include mobile {
+    margin-top: rem(50);
+  }
   &__wrap{
     display: flex;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
   }
   &__inner{
-    width: rem(545);
-    height: rem(367);
     margin-left: rem(-35);
+
+    @include laptop {
+      margin-left: rem(-40);
+    }
+
+    @include tablet {
+      margin-left: 0;
+    }
     &-fon{
       width: rem(545);
       height: rem(367);
       background-color: var(--color-linen);
+
+      @include laptop {
+        width: rem(405);
+        height: rem(272);
+        position: relative;
+        top: rem(33);
+      }
+
+      @include tablet {
+        width: rem(520);
+        height: rem(382);
+        top: rem(32);
+      }
+
+      @include mobile {
+        width: rem(250);
+        height: rem(184);
+        left: rem(-14);
+        top: rem(28);
+      }
     }
     &-youtube{
       z-index: 1;
       position: relative;
       left: rem(35);
       top: rem(-328);
+
+      @include laptop {
+        width: rem(405);
+        height: rem(272);
+        left: rem(40);
+        top: rem(-212);
+      }
+
+      @include tablet {
+        width: rem(541);
+        height: rem(362);
+        left: rem(29);
+        top: rem(-308);
+      }
+
+      @include mobile {
+        width: rem(260);
+        height: rem(174);
+        left: 0;
+        top: rem(-136);
+      }
     }
   }
   &__desc{
     margin-left: rem(76);
+
+    @include laptop {
+      margin-left: rem(68);
+    }
+
+    @include tablet {
+      margin-left: 0;
+    }
+    &-years {
+      @include tablet {
+        width: rem(71);
+        height: rem(32);
+      }
+    }
     &-experience{
       color: var(--color-blue);
       text-transform: uppercase;
-      font-family: var(--font-family-accent);
+      font-family: var(--font-family-accent), serif;
       font-weight: 700;
       font-size: rem(18);
       line-height: rem(30);
       margin: rem(20) 0 rem(32);
+
+      @include tablet {
+        font-size: rem(12);
+        line-height: rem(18);
+        margin: rem(13) 0 rem(21);
+      }
+
+      @include mobile {
+        margin: rem(16) 0 rem(28);
+      }
     }
     &-text{
       color: var(--color-brown);
       font-size: rem(18);
       line-height: rem(30);
+
+      @include tablet {
+        font-size: rem(14);
+        line-height: rem(20);
+      }
       & p:first-child{
         margin-bottom: rem(12);
       }
@@ -330,7 +422,7 @@ body {
     column-gap: rem(38);
   }
   &__desc {
-    font-family: var(--font-family-accent);
+    font-family: var(--font-family-accent), serif;
     font-weight: 400;
     font-size: rem(24);
     line-height: rem(32);
@@ -358,7 +450,7 @@ body {
   }
   &__title {
     text-transform: uppercase;
-    font-family: var(--font-family-accent);
+    font-family: var(--font-family-accent), serif;
     font-weight: 400;
     font-size: rem(48);
     line-height: rem(80);
