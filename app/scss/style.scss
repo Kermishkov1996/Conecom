@@ -299,6 +299,7 @@ body {
   }
   &__inner{
     margin-left: rem(-35);
+    position: relative;
 
     @include laptop {
       margin-left: rem(-40);
@@ -334,29 +335,29 @@ body {
     }
     &-youtube{
       z-index: 1;
-      position: relative;
+      position: absolute;
       left: rem(35);
-      top: rem(-328);
+      top: rem(37);
 
       @include laptop {
         width: rem(405);
         height: rem(272);
         left: rem(40);
-        top: rem(-212);
+        top: rem(60);
       }
 
       @include tablet {
         width: rem(541);
         height: rem(362);
         left: rem(29);
-        top: rem(-308);
+        top: rem(74);
       }
 
       @include mobile {
         width: rem(260);
         height: rem(174);
         left: 0;
-        top: rem(-136);
+        top: rem(48);
       }
     }
   }
@@ -412,14 +413,43 @@ body {
 }
 
 .product {
-  margin-top: rem(120);
+  margin-top: rem(100);
   background-color: var(--color-blue);
   display: flex;
+  overflow: hidden;
+
+  @include laptop {
+    margin-top: rem(80);
+  }
+
+  @include tablet {
+    margin-top: rem(134);
+  }
+
+  @include mobile {
+    margin-top: rem(88);
+  }
   &__inner {
-    padding: rem(94) 0 rem(94) rem(60);
+    padding-block: rem(94); // margin-top and margin-bottom
     display: flex;
     align-items: center;
     column-gap: rem(38);
+
+    @include tablet {
+      padding-block: rem(32);
+      column-gap: rem(27);
+    }
+
+    @include mobile {
+      align-items: flex-start;
+      column-gap: rem(7);
+    }
+  }
+  &__arrows {
+    @include tablet {
+      width: rem(22);
+      height: rem(28);
+    }
   }
   &__desc {
     font-family: var(--font-family-accent), serif;
@@ -427,11 +457,39 @@ body {
     font-size: rem(24);
     line-height: rem(32);
     width: rem(676);
+
+    @include tablet {
+      font-size: rem(16);
+      line-height: rem(20);
+      width: rem(451);
+      z-index: 2;
+    }
+
+    @include mobile {
+      width: rem(222);
+    }
   }
   &__effect {
     position: relative;
-    left: rem(-62);
+    left: rem(-2);
     top: rem(79);
+
+    @include laptop {
+      left: rem(-23);
+    }
+
+    @include tablet {
+      width: rem(179);
+      height: rem(97);
+      left: rem(-90);
+      top: rem(7);
+      z-index: 1;
+    }
+
+    @include mobile {
+      left: rem(-102);
+      top: rem(76);
+    }
   }
 }
 
@@ -447,6 +505,21 @@ body {
     flex-direction: column;
     align-items: center;
     gap: rem(40);
+
+    @include laptop {
+      padding-top: rem(84);
+      gap: rem(32);
+    }
+
+    @include tablet {
+      padding-block: rem(55);
+      gap: rem(20);
+    }
+
+    @include mobile {
+      padding: rem(27) 0 rem(60);
+      gap: 0;
+    }
   }
   &__title {
     text-transform: uppercase;
@@ -467,12 +540,52 @@ body {
     &::after {
       left: rem(30);
     }
+
+    @include tablet {
+      font-size: rem(30);
+      line-height: rem(46);
+      &::before,
+      &::after {
+        width: rem(15);
+        border: rem(1) solid var(--color-white);
+        top: rem(-10);
+        right: rem(14);
+      }
+      &::after {
+        left: rem(14);
+      }
+    }
+
+    @include mobile {
+      font-size: rem(18);
+      margin-bottom: rem(4);
+
+      &::before,
+      &::after {
+        top: rem(-6);
+      }
+    }
   }
   &__subtitle {
     text-transform: uppercase;
     text-align: center;
     font-size: rem(24);
     line-height: rem(28);
+
+    @include laptop {
+      width: rem(582);
+    }
+
+    @include tablet {
+      font-size: rem(16);
+      line-height: rem(20);
+      width: rem(390);
+    }
+
+    @include mobile {
+      width: rem(260);
+      margin-bottom: rem(30);
+    }
   }
   &__button {
     font-size: rem(18);
@@ -480,6 +593,16 @@ body {
     padding: rem(20) rem(72);
     background-color: var(--color-white);
     color: var(--color-blue);
+
+    @include tablet {
+      font-size: rem(14);
+      padding: rem(10) rem(32);
+    }
+
+    @include mobile {
+      font-size: rem(18);
+      padding: rem(10) rem(29);
+    }
   }
 }
 
