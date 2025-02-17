@@ -1,7 +1,8 @@
-/*$('.item__button').on('click', function(){
+$('.item__button').on('click', function(){
 	$(this).toggleClass('is-active');
-});*/
+});
 
+/*
 const itemBtn = document.querySelector('.item__button');
 const body = document.querySelector('body');
 
@@ -10,8 +11,9 @@ itemBtn.addEventListener('click', ()=>{
 	itemBtn.classList.toggle('is-active');
 	body.classList.remove('is-active');
 });
-/*
+*/
 
+/*
 //функция для закрытия меню
 function close() {
 	menuList.classList.remove('menu__list--open');
@@ -31,4 +33,5 @@ menuList.addEventListener('click', (event)=>{
 });
 
 //закрывает меню при нажатии на поле за пределами меню
-menuShadow.addEventListener('click', close);*/
+menuShadow.addEventListener('click', close);
+*/
