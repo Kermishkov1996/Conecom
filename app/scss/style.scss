@@ -297,6 +297,7 @@ body {
   @include mobile {
     margin-top: rem(50);
   }
+
   &__wrap{
     display: flex;
 
@@ -304,6 +305,7 @@ body {
       flex-direction: column-reverse;
     }
   }
+
   &__inner{
     margin-left: rem(-35);
     position: relative;
@@ -315,6 +317,7 @@ body {
     @include tablet {
       margin-left: 0;
     }
+
     &-fon{
       width: rem(545);
       height: rem(367);
@@ -340,6 +343,7 @@ body {
         top: rem(28);
       }
     }
+
     &-youtube{
       z-index: 1;
       position: absolute;
@@ -368,6 +372,7 @@ body {
       }
     }
   }
+
   &__desc{
     margin-left: rem(76);
 
@@ -384,6 +389,7 @@ body {
         height: rem(32);
       }
     }
+
     &-experience{
       color: var(--color-blue);
       text-transform: uppercase;
@@ -403,6 +409,7 @@ body {
         margin: rem(16) 0 rem(28);
       }
     }
+
     &-text{
       color: var(--color-brown);
       font-size: rem(18);
@@ -436,6 +443,7 @@ body {
   @include mobile {
     margin-top: rem(88);
   }
+
   &__inner {
     padding-block: rem(94); // margin-top and margin-bottom
     display: flex;
@@ -452,12 +460,14 @@ body {
       column-gap: rem(7);
     }
   }
+
   &__arrows {
     @include tablet {
       width: rem(22);
       height: rem(28);
     }
   }
+
   &__desc {
     font-family: var(--font-family-accent), serif;
     font-weight: 400;
@@ -476,6 +486,7 @@ body {
       width: rem(222);
     }
   }
+
   &__effect {
     position: relative;
     left: rem(-2);
@@ -501,10 +512,8 @@ body {
 }
 
 .mission {
-  background-image: url(../images/bg-mission.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url(../images/bg-mission.jpg) no-repeat center/cover;
+
   &__inner {
     padding: rem(80) 0 rem(101);
     display: flex;
@@ -528,6 +537,7 @@ body {
       gap: 0;
     }
   }
+
   &__title {
     text-transform: uppercase;
     font-family: var(--font-family-accent), serif;
@@ -573,6 +583,7 @@ body {
       }
     }
   }
+
   &__subtitle {
     text-transform: uppercase;
     text-align: center;
@@ -601,6 +612,10 @@ body {
     background-color: var(--color-white);
     color: var(--color-blue);
 
+    &:hover {
+      color: var(--color-brown);
+    }
+
     @include tablet {
       font-size: rem(14);
       padding: rem(10) rem(32);
@@ -614,17 +629,32 @@ body {
 }
 
 .advantages {
-  padding-top: rem(100);
   background-color: var(--color-linen);
+  &__inner {
+    padding-top: rem(100);
 
-  @include laptop {
-    padding-top: rem(80);
+    @include laptop {
+      padding-top: rem(80);
+    }
+
+    @include tablet {
+      padding-top: rem(60);
+    }
+
+    @include mobile {
+      padding-top: rem(50);
+    }
   }
 
   &__title {
     font-size: rem(40);
     line-height: rem(60);
     color: var(--color-blue);
+
+    @include tablet {
+      font-size: rem(20);
+      line-height: rem(32);
+    }
   }
 
   &__items {
@@ -637,27 +667,51 @@ body {
       margin-top: rem(32);
       gap: rem(20) rem(35);
     }
+
+    @include tablet {
+      margin-top: rem(20);
+      display: block;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .slick-slider {
+    left: rem(12);
+  }
+
+  .slick-next {
+    right: rem(-2);
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: rem(14);
+    color: var(--color-blue);
+    opacity: 1;
   }
 
   &__item {
 
-    @include laptop {
+    @include tablet {
       width: rem(260);
+      margin-right: rem(25);
     }
   }
 
   &__content {
     display: none;
     width: rem(356);
-    height: rem(264);
     position: absolute;
     top: rem(-125);
-    transition: all 6s;
     background-color: var(--color-blue);
 
     @include laptop {
       width: rem(260);
       top: rem(-99);
+    }
+
+    @include mobile {
+      width: rem(237);
     }
   }
 
@@ -670,15 +724,24 @@ body {
       font-size: rem(16);
       line-height: rem(20);
     }
+
+    @include tablet {
+      font-size: rem(14);
+      padding: rem(10) rem(15) 0 rem(15);
+    }
+
+    @include mobile {
+
+    }
   }
 
   .item {
     &__picture {
       display: block;
+      max-width: 100%;
 
       @include laptop {
-        width: rem(260);
-        height: rem(178);
+        object-fit: cover;
       }
     }
 
@@ -690,6 +753,11 @@ body {
       @include laptop {
         height: rem(165);
       }
+
+      @include tablet {
+        height: rem(106);
+      }
+
       & > p {
         width: rem(316);
         padding-top: rem(20);
@@ -700,8 +768,19 @@ body {
         @include laptop {
           width: rem(220);
         }
+
+        @include tablet {
+          font-size: rem(14);
+          padding-top: rem(10);
+          margin-inline: rem(15);
+        }
+
+        @include mobile {
+          width: rem(190);
+        }
       }
     }
+
     &__button {
       width: rem(16);
       height: rem(15);
@@ -715,6 +794,16 @@ body {
       @include laptop {
         top: rem(120);
       }
+
+      @include tablet {
+        top: rem(65);
+        right: rem(16);
+      }
+
+      @include mobile {
+        top: rem(75);
+      }
+
       &-line {
         background-color: var(--color-white);
         position: relative;
@@ -741,4 +830,34 @@ body {
       transform: rotate(45deg);
     }
   }
+}
+
+.slick-dots {
+  position: relative;
+  width: calc(100% - 25px);
+  margin-top: rem(10);
+  bottom: 0;
+}
+.slick-dots li {
+    width: auto;
+    height: auto;
+    margin: 0 rem(4);
+}
+.slick-dots li button {
+  font-size: inherit;
+  width: rem(4);
+  height: rem(15);
+  padding: 0;
+}
+.slick-dots li button:before {
+  font-size: inherit;
+  line-height: 0;
+  position: inherit;
+  width: auto;
+  height: auto;
+  color: rgba(138, 123, 96, 0.33);
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: var(--color-blue);
 }

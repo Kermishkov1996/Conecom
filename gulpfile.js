@@ -39,6 +39,7 @@ function images() {
 function scripts() {
     return src([
         'node_modules/jquery/dist/jquery.js',
+        'node_modules/slick-carousel/slick/slick.min.js',
         'app/js/main.js'
     ])
     .pipe(concat('main.min.js')) //создает сжатый файл js
@@ -48,7 +49,11 @@ function scripts() {
 }
 
 function styles() {
-    return src('app/scss/style.scss')
+    return src([
+      'node_modules/slick-carousel/slick/slick.css',
+      'node_modules/slick-carousel/slick/slick-theme.css',
+      'app/scss/style.scss'
+    ])
         .pipe(scss({outputStyle: 'compressed'})) //сжимает/минифицирует css код 
         .pipe(concat('style.min.css')) //создает сжатый файл css
         .pipe(autoprefixer({
